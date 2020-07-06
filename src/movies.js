@@ -123,23 +123,24 @@ function bestYearAvg(arr) {
     for (let i = 0; i < 2300; i++) {
       getAverage(i);
     }
-    function getAverage(yearInput) {
-      let newArr = [...arr];
-
-      let mapped = newArr
-        .filter(data => (data.year === yearInput ? data.year : null))
-        .map(d => d.rate);
-      if (mapped.length) {
-        let reduced = mapped.reduce((acc, next, i, array) => acc + next);
-
-        let total = reduced / mapped.length;
-        if (total > highestRating) {
-          highestRating = total;
-          highestYear = yearInput;
-        }
-        console.log(highestYear);
-      }
-    }
     return `The best year was ${highestYear} with an average rate of ${highestRating}`;
+  }
+}
+
+function getAverage(yearInput) {
+  let newArr = [...arr];
+
+  let mapped = newArr
+    .filter(data => (data.year === yearInput ? data.year : null))
+    .map(d => d.rate);
+  if (mapped.length) {
+    let reduced = mapped.reduce((acc, next, i, array) => acc + next);
+
+    let total = reduced / mapped.length;
+    if (total > highestRating) {
+      highestRating = total;
+      highestYear = yearInput;
+    }
+    console.log(highestYear);
   }
 }
